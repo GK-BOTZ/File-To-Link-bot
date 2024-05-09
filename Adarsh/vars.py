@@ -29,12 +29,12 @@ class Var(object):
     
     else:
         ON_HEROKU = False
-    FQDN = str(getenv('FQDN', 'BIND_ADRESS:PORT')) if not ON_HEROKU or getenv('FQDN', '') else APP_NAME+'https://krsfiletolinkbot-39fb9a40c0d9.herokuapp.com/'
+    FQDN = str(getenv('FQDN', 'BIND_ADRESS:PORT')) if not ON_HEROKU or getenv('FQDN', '') else APP_NAME+'herokuapp.com'
     HAS_SSL=bool(getenv('HAS_SSL',False))
     if HAS_SSL:
-        URL = "https://{}/".format(FQDN)
+        URL = "https://krsfiletolinkbot-39fb9a40c0d9.herokuapp.com/".format(FQDN)
     else:
-        URL = "http://{}/".format(FQDN)
+        URL = "https://krsfiletolinkbot-39fb9a40c0d9.herokuapp.com/".format(FQDN)
     DATABASE_URL = str(getenv('DATABASE_URL', 'mongodb+srv://adminleech:UHee459K12WJBfDY@cluster0.xsmgkhi.mongodb.net/?retryWrites=true&w=majority'))
     UPDATES_CHANNEL = str(getenv('UPDATES_CHANNEL', 'KRS_BOTS'))
     BANNED_CHANNELS = list(set(int(x) for x in str(getenv("BANNED_CHANNELS", "-1002012506663")).split()))      
